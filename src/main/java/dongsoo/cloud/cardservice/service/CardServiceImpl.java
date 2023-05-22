@@ -22,6 +22,11 @@ public class CardServiceImpl implements CardService{
         return mapToDTO(savedCard);
     }
 
+    @Override
+    public long count() {
+        return cardRepository.count();
+    }
+
     private CardDTO mapToDTO(Card card){
         return modelMapper.map(card, CardDTO.class);
     }

@@ -2,10 +2,7 @@ package dongsoo.cloud.cardservice.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import dongsoo.cloud.cardservice.dto.CardDTO;
 import dongsoo.cloud.cardservice.service.CardService;
@@ -20,5 +17,10 @@ public class CardController {
     @PostMapping
     public ResponseEntity<CardDTO> createCard(@RequestBody CardDTO cardDTO){
         return new ResponseEntity<>(cardService.createCard(cardDTO), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/counts")
+    public long count(){
+        return cardService.count();
     }
 }
